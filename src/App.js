@@ -10,35 +10,36 @@ import './App.css';
 
 function App() {
   return (
+    <React.Fragment> 
     <div className="App">
-    <Router>
-      <div>
-        <Switch>
-          <Route path="/search">
-            <Search />
-          </Route>
-          <Route path="/results">
-            <Results />
-          </Route>
-          <Route path="/details/:itemName">
+      <Router>
+          <Switch>
+            <Route path="/search">
+              <Search />
+            </Route>
+            <Route path="/results">
+              {/* <Results /> */}
+            </Route>
+            <Route path="/details/:itemName">
 
-          </Route>
-          <Route path="/quote">
+            </Route>
+            <Route path="/quote">
 
-          </Route>
-          <Route path="/confirmation">
+            </Route>
+            <Route path="/confirmation">
 
-          </Route>
-          <Route path="/delivery/:type">
+            </Route>
+            <Route path="/delivery/:type">
 
-          </Route>
-          <Route path="/rating">
+            </Route>
+            <Route path="/rating">
 
-          </Route>
-      </Switch>
-      </div>
-    </Router>
+            </Route>
+        </Switch>
+
+      </Router>
     </div>
+    </React.Fragment>
   );
 }
 

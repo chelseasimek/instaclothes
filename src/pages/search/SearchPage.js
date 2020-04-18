@@ -1,46 +1,47 @@
 import React from 'react';
 
-  import { 
-    useRadioState,
-    Radio,
-    RadioGroup,
-    useCheckboxState,
-    Checkbox,
-    unstable_useFormState as useFormState,
-    unstable_Form as Form,
-    unstable_FormLabel as FormLabel,
-    unstable_FormInput as FormInput,
-    unstable_FormMessage as FormMessage,
-    unstable_FormSubmitButton as FormSubmitButton,
-   } from "reakit";
+import { 
+  useRadioState,
+  Radio,
+  RadioGroup,
+  useCheckboxState,
+  Checkbox,
+  unstable_useFormState as useFormState,
+  unstable_Form as Form,
+  unstable_FormLabel as FormLabel,
+  unstable_FormInput as FormInput,
+  unstable_FormSubmitButton as FormSubmitButton,
+  } from "reakit";
+
+import { useDispatch } from "react-redux";
 
 export default function Search(){
-
- const colorRadio = useRadioState({ state: 'red' });
- const sizeCheckbox = useCheckboxState({ state: [] });
- const form = useFormState({
-  values: { name: "" },
-  onValidate: (values) => {
-    if (!values.name) {
-      const errors = {
-        name: "",
-      };
-      throw errors;
-    }
-  },
-  onSubmit: (values) => {
-    alert(JSON.stringify(values, null, 2));
-  },
-});
+  const colorRadio = useRadioState({ state: 'red' });
+  const sizeCheckbox = useCheckboxState({ state: [] });
+  const occasionCheckbox = useCheckboxState({ state: [] });
+  const form = useFormState({
+   values: { search: "" },
+   onSubmit: (values) => {
+     values = { 
+       input: values, 
+       color: colorRadio.state,
+       size: sizeCheckbox.state,
+       occasionCheckbox: occasionCheckbox
+     }
+     dispatch({...values, type: 'SEARCH_VALUES'});
+     alert(JSON.stringify(values, null, 2));
+   },
+ });
+ const dispatch = useDispatch();
 
   return (
     <React.Fragment>
       <h1> SEARCH </h1>
       <Form {...form}>
-      <FormLabel {...form} name="Search">
-        Search
-      </FormLabel>
-      <FormInput {...form} name="search" placeholder="Blur Shirt" />
+        <FormLabel {...form} name="search">
+          Search
+        </FormLabel>
+        <FormInput {...form} name="search" placeholder="Blur Shirt" />
         <h2>Colors</h2>
         <fieldset>   
           <RadioGroup { ...colorRadio } aria-label="shirt-colors">
@@ -92,31 +93,31 @@ export default function Search(){
         <h2>Occasion</h2>
         <fieldset>   
           <label>
-            <Checkbox {...sizeCheckbox} value="formal" />
+            <Checkbox {...occasionCheckbox} value="formal" />
             Formal
           </label>
           <label>
-            <Checkbox {...sizeCheckbox} value="casual" />
+            <Checkbox {...occasionCheckbox} value="casual" />
             Casual
           </label>
           <label>
-            <Checkbox {...sizeCheckbox} value="coctail" />
+            <Checkbox {...occasionCheckbox} value="coctail" />
             Cocktail
           </label>
           <label>
-            <Checkbox {...sizeCheckbox} value="back-tie" />
+            <Checkbox {...occasionCheckbox} value="back-tie" />
             Black Tie
           </label>
           <label>
-            <Checkbox {...sizeCheckbox} value="sport" />
+            <Checkbox {...occasionCheckbox} value="sport" />
             Sport
           </label>
           <label>
-            <Checkbox {...sizeCheckbox} value="business" />
+            <Checkbox {...occasionCheckbox} value="business" />
             Business
           </label>
         </fieldset>    
-        <FormSubmitButton {...form}>Submit</FormSubmitButton>
+        <FormSubmitButton {...form}>Go</FormSubmitButton>
       </Form>
     </React.Fragment>
   )
