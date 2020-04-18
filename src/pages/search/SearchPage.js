@@ -14,8 +14,11 @@ import {
   } from "reakit";
 
 import { useDispatch } from "react-redux";
+import { updateSearchValues } from '../../redux/actions';
+import { swapPage } from '../../utils';
 
 export default function Search(){
+  const dispatch = useDispatch();
   const colorRadio = useRadioState({ state: 'red' });
   const sizeCheckbox = useCheckboxState({ state: [] });
   const occasionCheckbox = useCheckboxState({ state: [] });
@@ -28,11 +31,10 @@ export default function Search(){
        size: sizeCheckbox.state,
        occasionCheckbox: occasionCheckbox
      }
-     dispatch({...values, type: 'SEARCH_VALUES'});
-     alert(JSON.stringify(values, null, 2));
+     dispatch(updateSearchValues(values));
+     swapPage('results');
    },
  });
- const dispatch = useDispatch();
 
   return (
     <React.Fragment>

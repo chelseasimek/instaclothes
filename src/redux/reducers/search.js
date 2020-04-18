@@ -4,9 +4,9 @@ const search = (state = [], action) => {
         return [
           ...state,
           {
-            input: action.values, 
-            color: action.colorRadio.state,
-            size: action.sizeCheckbox.state,
+            input: action.input, 
+            color: action.color,
+            size: action.size,
             occasionCheckbox: action.occasionCheckbox
           }
         ]

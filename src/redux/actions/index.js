@@ -1,4 +1,1 @@
-export const updateSearchValues = values => ({
-    type: 'SEARCH_VALUES',
-    ...values
-})
+export const updateSearchValues = values => ({ ...values, type: 'SEARCH_VALUES'})
