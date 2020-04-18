@@ -12,6 +12,8 @@ export default function Search(){
 
  const colorRadio = useRadioState({ state: 'red' });
  const sizeCheckbox = useCheckboxState({ state: [] });
+
+
   return (
     <React.Fragment>
       <h1> SEARCH </h1>
@@ -20,22 +22,22 @@ export default function Search(){
       <h2>Colors</h2>
       <RadioGroup { ...colorRadio } aria-label="shirt-colors">
         <label>
-          <Radio { ...colorRadio } value="red" /> red
+          <Radio { ...colorRadio } value="red" /> Red
         </label>
         <label>
-          <Radio { ...colorRadio } value="orange" /> orange
+          <Radio { ...colorRadio } value="orange" /> Orange
         </label>
         <label>
-          <Radio { ...colorRadio } value="yellow" /> yellow
+          <Radio { ...colorRadio } value="yellow" /> Yellow
         </label>
         <label>
-          <Radio { ...colorRadio } value="green" /> green
+          <Radio { ...colorRadio } value="green" /> Green
         </label>
         <label>
-          <Radio { ...colorRadio } value="blue" /> blue
+          <Radio { ...colorRadio } value="blue" /> Blue
         </label>
         <label>
-          <Radio { ...colorRadio } value="purple" /> purple
+          <Radio { ...colorRadio } value="purple" /> Purple
         </label>
       </RadioGroup>
 
