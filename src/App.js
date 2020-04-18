@@ -1,13 +1,10 @@
 import React from 'react';
-import logo from './logo.svg';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link,
-  useRouteMatch,
-  useParams
+  Route
 } from "react-router-dom";
+import Search from './pages/search/SearchPage';
 import './App.css';
 
 function App() {
@@ -17,15 +14,12 @@ function App() {
       <div>
         <Switch>
           <Route path="/search">
-
+            <Search></Search>
           </Route>
           <Route path="/results">
 
           </Route>
           <Route path="/details/:itemName">
-
-          </Route>
-          <Route path="/search">
 
           </Route>
           <Route path="/quote">
