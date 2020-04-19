@@ -20,7 +20,7 @@ function App() {
             <Route path="/results">
               <Results />
             </Route>
-            <Route path="/details/:itemName">
+            <Route path="/details/:item">
 
             </Route>
             <Route path="/quote">
@@ -35,6 +35,7 @@ function App() {
             <Route path="/rating">
 
             </Route>
+            <Route><Search /></Route>
         </Switch>
 
       </Router>
