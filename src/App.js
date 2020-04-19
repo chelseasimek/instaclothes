@@ -6,6 +6,8 @@ import {
 } from "react-router-dom";
 import Search from './pages/search/SearchPage';
 import Results from './pages/results/ResultsPage';
+// import Details from './pages/details/DetailsPage';
+import Cart from './pages/cart/CartPage';
 import './App.css';
 
 function App() {
@@ -25,6 +27,9 @@ function App() {
             </Route>
             <Route path="/quote">
 
+            </Route>
+            <Route path="/cart">
+              <Cart />
             </Route>
             <Route path="/confirmation">
 

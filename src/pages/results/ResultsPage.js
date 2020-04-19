@@ -3,10 +3,12 @@ import { useSelector } from 'react-redux';
 import { Clickable, Button } from "reakit";
 import { swapPage } from '../../utils';
 import { useDispatch } from "react-redux";
-import { updateCurrentItem } from '../../redux/actions';
+import { updateCurrentItem, addItemToCart } from '../../redux/actions';
 
 export default function Results(){
     const searchState = useSelector(state => state.search);
+    console.log(searchState);
+    const dispatch = useDispatch();
     let stores = [ 'Target', 'Norstrom', 'Marshalls', 'Aerie', 'Bloomingdales', 'The Gap' ]
     let resultsArr = [];
 
@@ -20,13 +22,13 @@ export default function Results(){
     }
 
     let _getDetails = (result) => {
-        console.log(result);
-        // useDispatch(updateCurrentItem())
-        // swapPage('details');
+        dispatch(updateCurrentItem(result));
+        swapPage('details');
     }
 
-    let _addToCart = () => {
-        swapPage('cart')
+    let _addToCart = (result) => {
+        dispatch(addItemToCart(result));
+        swapPage('cart');
     }
 
     let renderResults = resultsArr.map((result, i) => {
