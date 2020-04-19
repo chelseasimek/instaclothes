@@ -11,9 +11,24 @@ export default function Results(){
             title: `${searchState.color} ${searchState.occasions[Math.floor(Math.random() * searchState.occasions.length)]} Shirt`,
             store: stores[Math.floor(Math.random() * stores.length)],
             price: `$ ${(Math.floor(Math.random() * 10000) + 1)/100}`,
-            imageAlt: () => { return `Image of a ${this.title}` }
+            imageAlt: function () { return `Image of a ${this.title}` }
         })
     }
 
-    return null;
+    let renderResults = resultsArr.map((result, i) => {
+        return (
+            <React.Fragment key= {result.title + i}>
+                <img alt={result.imageAlt()} src='' />
+                <h3> {result.title} </h3>
+                <h4> {result.store} </h4>
+                <h4> {result.price} </h4>
+            </React.Fragment>
+        )
+    })
+    return (
+        <React.Fragment>
+            <h2>Results</h2>
+            { renderResults }
+        </React.Fragment>
+    );
 }
