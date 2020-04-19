@@ -18,7 +18,7 @@ function App() {
               <Search />
             </Route>
             <Route path="/results">
-              {/* <Results /> */}
+              <Results />
             </Route>
             <Route path="/details/:itemName">
 

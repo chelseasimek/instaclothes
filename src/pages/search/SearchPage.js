@@ -29,7 +29,7 @@ export default function Search(){
        input: values, 
        color: colorRadio.state,
        size: sizeCheckbox.state,
-       occasionCheckbox: occasionCheckbox
+       occasion: occasionCheckbox
      }
      dispatch(updateSearchValues(values));
      swapPage('results');
@@ -95,27 +95,27 @@ export default function Search(){
         <h2>Occasion</h2>
         <fieldset>   
           <label>
-            <Checkbox {...occasionCheckbox} value="formal" />
+            <Checkbox {...occasionCheckbox} value="formal" checked={true} />
             Formal
           </label>
           <label>
-            <Checkbox {...occasionCheckbox} value="casual" />
+            <Checkbox {...occasionCheckbox} value="casual" checked={true} />
             Casual
           </label>
           <label>
-            <Checkbox {...occasionCheckbox} value="coctail" />
+            <Checkbox {...occasionCheckbox} value="coctail" checked={true} />
             Cocktail
           </label>
           <label>
-            <Checkbox {...occasionCheckbox} value="back-tie" />
+            <Checkbox {...occasionCheckbox} value="back-tie" checked={true} />
             Black Tie
           </label>
           <label>
-            <Checkbox {...occasionCheckbox} value="sport" />
+            <Checkbox {...occasionCheckbox} value="sport" checked={true} />
             Sport
           </label>
           <label>
-            <Checkbox {...occasionCheckbox} value="business" />
+            <Checkbox {...occasionCheckbox} value="business" checked={true} />
             Business
           </label>
         </fieldset>    

@@ -1,15 +1,18 @@
-const search = (state = [], action) => {
+const search = (state = {
+    input: 'Blue Shirt', 
+    color: 'blue',
+    sizes: [ 'xs', 's', 'm', 'l', 'xl' ],
+    occasions: [ 'formal', 'casual', 'cocktail', 'back-tie', 'sport', 'business' ]
+}, action) => {
     switch (action.type) {
       case 'SEARCH_VALUES':
-        return [
+        return {
           ...state,
-          {
             input: action.input, 
             color: action.color,
-            size: action.size,
-            occasionCheckbox: action.occasionCheckbox
-          }
-        ]
+            sizes: action.size,
+            occasions: action.occasionCheckbox
+        }
       default:
         return state
     }
