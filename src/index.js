@@ -4,6 +4,10 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import reducers from './redux/reducers';
+import history from './history';
+import {
+  Router,
+} from "react-router-dom";
 
 import './index.css';
 import App from './App';
@@ -15,11 +19,13 @@ const store = createStore(
   );
 
 ReactDOM.render(
-  <Provider store={store}>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </Provider>,
+  <Router history={history}>
+    <Provider store={store}>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </Provider>
+  </Router>,
   document.getElementById('root')
 );
 

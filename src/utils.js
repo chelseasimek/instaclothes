@@ -1,3 +1,7 @@
+import history from './history';
+import { useState, useCallback } from 'react'
+
 export function swapPage(route) {
-    window.location.pathname = route;
-}   
+    // let url =  `${window.location.origin}/${route}` ;
+    history.push(route);
+}  

@@ -21,15 +21,15 @@ export default function Search(){
   const dispatch = useDispatch();
   const colorRadio = useRadioState({ state: 'red' });
   const sizeCheckbox = useCheckboxState({ state: [] });
-  const occasionCheckbox = useCheckboxState({ state: [] });
+  const occasionCheckbox = useCheckboxState({ state: [ 'formal', 'casual', 'cocktail', 'back-tie', 'sport', 'business' ] });
   const form = useFormState({
    values: { search: "" },
    onSubmit: (values) => {
      values = { 
-       input: values, 
+       input: values.search, 
        color: colorRadio.state,
        size: sizeCheckbox.state,
-       occasion: occasionCheckbox
+       occasion: occasionCheckbox.state
      }
      dispatch(updateSearchValues(values));
      swapPage('results');
@@ -95,27 +95,27 @@ export default function Search(){
         <h2>Occasion</h2>
         <fieldset>   
           <label>
-            <Checkbox {...occasionCheckbox} value="formal" checked={true} />
+            <Checkbox {...occasionCheckbox} value="formal" />
             Formal
           </label>
           <label>
-            <Checkbox {...occasionCheckbox} value="casual" checked={true} />
+            <Checkbox {...occasionCheckbox} value="casual" />
             Casual
           </label>
           <label>
-            <Checkbox {...occasionCheckbox} value="coctail" checked={true} />
+            <Checkbox {...occasionCheckbox} value="cocktail" />
             Cocktail
           </label>
           <label>
-            <Checkbox {...occasionCheckbox} value="back-tie" checked={true} />
+            <Checkbox {...occasionCheckbox} value="back-tie" />
             Black Tie
           </label>
           <label>
-            <Checkbox {...occasionCheckbox} value="sport" checked={true} />
+            <Checkbox {...occasionCheckbox} value="sport" />
             Sport
           </label>
           <label>
-            <Checkbox {...occasionCheckbox} value="business" checked={true} />
+            <Checkbox {...occasionCheckbox} value="business" />
             Business
           </label>
         </fieldset>    

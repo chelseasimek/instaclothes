@@ -4,11 +4,6 @@ export const types = {
     ADD_ITEM_TO_CART: 'ADD_ITEM_TO_CART'
 }
 
-export const updateSearchValues = values => {
-    return { ...values, type: types.UPDATE_SEARCH_VALUES}
-}
+export const updateSearchValues = values => ({ ...values, type: types.UPDATE_SEARCH_VALUES});
 export const updateCurrentItem = item => ({ item, type: types.UPDATE_CURRENT_ITEM});
-export const addItemToCart = item => { 
-    console.log({item, type: types.ADD_ITEM_TO_CART})
-    return {item, type: types.ADD_ITEM_TO_CART}
- };
+export const addItemToCart = item => ({item, type: types.ADD_ITEM_TO_CART});

@@ -7,14 +7,14 @@ import { updateCurrentItem, addItemToCart } from '../../redux/actions';
 
 export default function Results(){
     const searchState = useSelector(state => state.search);
-    console.log(searchState);
     const dispatch = useDispatch();
     let stores = [ 'Target', 'Norstrom', 'Marshalls', 'Aerie', 'Bloomingdales', 'The Gap' ]
     let resultsArr = [];
 
     for (let i = 0; i <= 10; i++) {
+        console.log(searchState);
         resultsArr.push({
-            title: `${searchState.color} ${searchState.occasions[Math.floor(Math.random() * searchState.occasions.length)]} Shirt`,
+            title: `${searchState.color} ${searchState.occasions.length ? searchState.occasions[Math.floor(Math.random() * searchState.occasions.length)] : ''} Shirt`,
             store: stores[Math.floor(Math.random() * stores.length)],
             price: `$ ${(Math.floor(Math.random() * 10000) + 1)/100}`,
             imageAlt: function () { return `Image of a ${this.title}` }
