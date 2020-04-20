@@ -43,7 +43,7 @@ export default function Search(){
         <FormLabel {...form} name="search">
           Search
         </FormLabel>
-        <FormInput {...form} name="search" placeholder="Blur Shirt" />
+        <FormInput {...form} name="search" placeholder="Shirt" />
         <h2>Colors</h2>
         <fieldset>   
           <RadioGroup { ...colorRadio } aria-label="shirt-colors">

@@ -14,9 +14,9 @@ export default function Results(){
     for (let i = 0; i <= 10; i++) {
         console.log(searchState);
         resultsArr.push({
-            title: `${searchState.color} ${searchState.occasions.length ? searchState.occasions[Math.floor(Math.random() * searchState.occasions.length)] : ''} Shirt`,
+            title: `${searchState.color} ${searchState.occasions.length ? searchState.occasions[Math.floor(Math.random() * searchState.occasions.length)] : ''} ${searchState.input || 'Shirt'}`,
             store: stores[Math.floor(Math.random() * stores.length)],
-            price: `$ ${(Math.floor(Math.random() * 10000) + 1)/100}`,
+            price: `$${(Math.floor(Math.random() * 10000) + 1)/100}`,
             imageAlt: function () { return `Image of a ${this.title}` }
         })
     }
@@ -30,6 +30,8 @@ export default function Results(){
         dispatch(addItemToCart(result));
         swapPage('cart');
     }
+
+    let _searchAgain = () => { swapPage('search'); }
 
     let renderResults = resultsArr.map((result, i) => {
         return (
@@ -49,6 +51,8 @@ export default function Results(){
         <React.Fragment>
             <h2>Results</h2>
             { renderResults }
+
+            <Button onClick={_searchAgain}>Adjust Search</Button>
         </React.Fragment>
     );
 }

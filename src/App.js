@@ -7,6 +7,7 @@ import {
 
 import Search from './pages/search/SearchPage';
 import Results from './pages/results/ResultsPage';
+import Checkout from './pages/checkout/CheckoutPage';
 // import Details from './pages/details/DetailsPage';
 import Cart from './pages/cart/CartPage';
 import './App.css';
@@ -17,15 +18,8 @@ class App extends React.Component {
       <Switch>
         <Route path="/search" exact={true} component={Search}/>
         <Route path="/results" exact={true} component={Results}/>
-        <Route path="/details/:item">
-
-        </Route>
-        <Route path="/quote">
-
-        </Route>
-        <Route path="/cart">
-          <Cart />
-        </Route>
+        <Route path="/cart" exact={true} component={Cart} />
+        <Route path="/checkout" exact={true} component={Checkout} />
         <Route path="/confirmation">
 
         </Route>
@@ -35,7 +29,9 @@ class App extends React.Component {
         <Route path="/rating">
 
         </Route>
-        <Route><Search /></Route>
+        <Route path="/details/:item">
+
+</Route>
      </Switch>
     );
   }
