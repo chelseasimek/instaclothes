@@ -12,6 +12,7 @@ import { swapPage } from '../../utils';
 export default function Checkout(){
     const cartState = useSelector(state => state.cart);
     const sizeCheckbox = useCheckboxState({ state: [] });
+    const deliveryFee = 4.99;
     let renderResults = cartState.map((item, i) => {
         return (
             <React.Fragment  key= {item.title + i}>
@@ -26,18 +27,18 @@ export default function Checkout(){
         )
     });
 
-    let totalPrice = cartState.reduce((acc, val) => (acc + parseInt(val.price.replace(/\$/g,""))), 4.99);
+    let totalPrice = cartState.reduce((acc, val) => (acc + parseInt(val.price.replace(/\$/g,""))), deliveryFee);
 
     let deliveryDetails = 
         <React.Fragment>
             <h2>Delivery Fee</h2>
-            <h4>$4.99</h4>
+            <h4>${deliveryFee}</h4>
         </React.Fragment>
 
     let orderTotal = 
         <React.Fragment>
             <h2>Order Total</h2>
-            <h4>{totalPrice}</h4>
+            <h4>${totalPrice}</h4>
         </React.Fragment>
 
     let freeBackupSize = 
@@ -74,7 +75,7 @@ export default function Checkout(){
             {orderTotal}
             <Separator/>
             {freeBackupSize}
-            <Button>Deliver it!</Button>
+            <Button onClick={()=>{ swapPage('confirmation') }}>Deliver it!</Button>
         </React.Fragment>
     )
 }
