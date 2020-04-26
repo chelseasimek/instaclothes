@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/instaclothes/static/css/main.266173d9.chunk.css",
+    "main.js": "/instaclothes/static/js/main.622eaf3a.chunk.js",
+    "main.js.map": "/instaclothes/static/js/main.622eaf3a.chunk.js.map",
+    "runtime-main.js": "/instaclothes/static/js/runtime-main.6b7a3714.js",
+    "runtime-main.js.map": "/instaclothes/static/js/runtime-main.6b7a3714.js.map",
+    "static/js/2.1a4d399d.chunk.js": "/instaclothes/static/js/2.1a4d399d.chunk.js",
+    "static/js/2.1a4d399d.chunk.js.map": "/instaclothes/static/js/2.1a4d399d.chunk.js.map",
+    "index.html": "/instaclothes/index.html",
+    "precache-manifest.144a3a45ac9dfb64a85a0d5961d13883.js": "/instaclothes/precache-manifest.144a3a45ac9dfb64a85a0d5961d13883.js",
+    "service-worker.js": "/instaclothes/service-worker.js",
+    "static/css/main.266173d9.chunk.css.map": "/instaclothes/static/css/main.266173d9.chunk.css.map",
+    "static/js/2.1a4d399d.chunk.js.LICENSE.txt": "/instaclothes/static/js/2.1a4d399d.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6b7a3714.js",
+    "static/js/2.1a4d399d.chunk.js",
+    "static/css/main.266173d9.chunk.css",
+    "static/js/main.622eaf3a.chunk.js"
+  ]
+}
