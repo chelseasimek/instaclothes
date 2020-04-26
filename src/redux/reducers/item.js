@@ -1,7 +1,12 @@
 import { types } from '../actions';
 
 const item = (state = {
-    item: {}
+    item: {
+      title: 'blue casual shirt',
+      store: 'Target',
+      price: '$24.99',
+      imageAlt: function () { return `Image of a ${this.title}` }
+    }
 }, action) => {
     switch (action.type) {
       case types.UPDATE_CURRENT_ITEM:
@@ -13,5 +18,5 @@ const item = (state = {
         return state
     }
   }
-  
+
   export default item

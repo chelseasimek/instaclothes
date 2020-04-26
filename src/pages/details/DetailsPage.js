@@ -1,61 +1,33 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Clickable, Button } from "reakit";
+import { Button } from "reakit";
 import { swapPage } from '../../utils';
 import { useDispatch } from "react-redux";
-import { updateCurrentItem, addItemToCart } from '../../redux/actions';
+import { addItemToCart } from '../../redux/actions';
 
-export default function Results(){
-    const searchState = useSelector(state => state.search);
+export default function Details() {
+    const itemState = useSelector(state => state.item);
+    const item = itemState.item;
     const dispatch = useDispatch();
-    let stores = [ 'Target', 'Norstrom', 'Marshalls', 'Aerie', 'Bloomingdales', 'The Gap' ]
-    let resultsArr = [];
-
-    for (let i = 0; i <= 10; i++) {
-        resultsArr.push({
-            title: `${searchState.color} ${searchState.occasions.length ? searchState.occasions[Math.floor(Math.random() * searchState.occasions.length)] : ''} ${searchState.input || 'Shirt'}`,
-            store: stores[Math.floor(Math.random() * stores.length)],
-            price: `$${(Math.floor(Math.random() * 10000) + 1)/100}`,
-            imageAlt: function () { return `Image of a ${this.title}` }
-        })
-    }
-
-    let _getDetails = (result) => {
-        dispatch(updateCurrentItem(result));
-        swapPage('details');
-    }
+    console.log(itemState);
 
     let _addToCart = (result) => {
-        dispatch(addItemToCart(result));
-        swapPage('cart');
+      dispatch(addItemToCart(result));
+      swapPage('cart');
     }
-
-    let _searchAgain = () => { swapPage('search'); }
-
-    let renderResults = resultsArr.map((result, i) => {
-        return (
-            <React.Fragment  key= {result.title + i}>
-                <Clickable tabIndex={i+1} onClick={()=>{_getDetails(result)}}>
-                    <img alt={result.imageAlt()} src='' />
-                    <h3> {result.title} </h3>
-                    <h4> {result.store} </h4>
-                    <h4> {result.price} </h4>
-                </Clickable>
-                <Button tabIndex={i+1} onClick={()=>{_addToCart(result)}} >Reserve Item</Button>
-            </React.Fragment>
-
-        )
-    })
     return (
         <React.Fragment>
-            <h2>Results</h2>
-            {/* <Clickable tabIndex={i+1} onClick={()=>{_getDetails(result)}}>
-                    <img alt={result.imageAlt()} src='' />
-                    <h3> {result.title} </h3>
-                    <h4> {result.store} </h4>
-                    <h4> {result.price} </h4>
-                </Clickable>
-                <Button tabIndex={i+1} onClick={()=>{_addToCart(result)}} >Reserve Item</Button> */}
+            <h2>ITEM DETAILS</h2>
+            <img alt={item.imageAlt()} src='' />
+            <h3> {item.title} </h3>
+            <h4> {item.store} </h4>
+            <h4> Size: {item.size} </h4>
+            <h4> {item.price} </h4>
+            <h4> In Stock: { Math.floor(Math.random() * 150) }</h4>
+            <h5>Description</h5>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <Button onClick={()=>{_addToCart(item)}}>Reserve Item</Button>
+            <Button onClick={()=>{swapPage('results')}}>Return to Results</Button>
         </React.Fragment>
     );
 }

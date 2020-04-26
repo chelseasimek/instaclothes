@@ -15,9 +15,11 @@ export default function Results() {
         resultsArr.push({
             title: `${searchState.color} ${searchState.occasions.length ? searchState.occasions[Math.floor(Math.random() * searchState.occasions.length)] : ''} ${searchState.input || 'Shirt'}`,
             store: stores[Math.floor(Math.random() * stores.length)],
+            size: searchState.sizes[Math.floor(Math.random() * searchState.sizes.length)],
             price: `$${(Math.floor(Math.random() * 10000) + 1)/100}`,
             imageAlt: function () { return `Image of a ${this.title}` }
         })
+        console.log(resultsArr);
     }
 
     let _getDetails = (result) => {
@@ -39,6 +41,7 @@ export default function Results() {
                     <img alt={result.imageAlt()} src='' />
                     <h3> {result.title} </h3>
                     <h4> {result.store} </h4>
+                    <h4> Size: {result.size} </h4>
                     <h4> {result.price} </h4>
                 </Clickable>
                 <Button tabIndex={i+1} onClick={()=>{_addToCart(result)}} >Reserve Item</Button>

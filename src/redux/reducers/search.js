@@ -1,7 +1,7 @@
 import { types } from '../actions';
 
 const search = (state = {
-    input: 'Blue Shirt', 
+    input: 'shirt',
     color: 'blue',
     sizes: [ 'xs', 's', 'm', 'l', 'xl' ],
     occasions: [ 'formal', 'casual', 'cocktail', 'back-tie', 'sport', 'business' ]
@@ -10,7 +10,7 @@ const search = (state = {
       case types.UPDATE_SEARCH_VALUES:
         return {
           ...state,
-            input: action.input, 
+            input: action.input,
             color: action.color,
             sizes: action.size,
             occasions: action.occasion
@@ -19,5 +19,5 @@ const search = (state = {
         return state
     }
   }
-  
+
   export default search

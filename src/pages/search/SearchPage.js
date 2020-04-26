@@ -20,7 +20,7 @@ import { swapPage } from '../../utils';
 export default function Search() {
   const dispatch = useDispatch();
   const colorRadio = useRadioState({ state: 'red' });
-  const sizeCheckbox = useCheckboxState({ state: [] });
+  const sizeCheckbox = useCheckboxState({ state: ['xs', 's', 'm', 'l', 'xl'] });
   const occasionCheckbox = useCheckboxState({ state: [ 'formal', 'casual', 'cocktail', 'back-tie', 'sport', 'business' ] });
   const form = useFormState({
    values: { search: "" },

@@ -3,15 +3,16 @@ import { useSelector } from 'react-redux';
 import {
     Button,
     Box,
-    useCheckboxState,
-    Checkbox,
-    Separator
+    useRadioState,
+    Radio,
+    RadioGroup,
+    Separator,
 } from "reakit";
 import { swapPage } from '../../utils';
 
 export default function Checkout() {
     const cartState = useSelector(state => state.cart);
-    const sizeCheckbox = useCheckboxState({ state: [] });
+    const sizeRaido = useRadioState({ state: '' });
     const deliveryFee = 4.99;
     let renderResults = cartState.map((item, i) => {
         return (
@@ -45,26 +46,23 @@ export default function Checkout() {
         <React.Fragment>
             <h2>Free Backup Size</h2>
             <fieldset>
-            <label>
-                <Checkbox {...sizeCheckbox} value="xs" />
-                X-Small
-            </label>
-            <label>
-                <Checkbox {...sizeCheckbox} value="s" />
-                Small
-            </label>
-            <label>
-                <Checkbox {...sizeCheckbox} value="m" />
-                Medium
-            </label>
-            <label>
-                <Checkbox {...sizeCheckbox} value="l" />
-                Large
-            </label>
-            <label>
-                <Checkbox {...sizeCheckbox} value="xl" />
-                X-Large
-            </label>
+            <RadioGroup { ...sizeRaido } aria-label="free-size">
+                <label>
+                    <Radio { ...sizeRaido } value="xs" /> X-Small
+                </label>
+                <label>
+                    <Radio { ...sizeRaido } value="s" /> Small
+                </label>
+                <label>
+                    <Radio { ...sizeRaido } value="m" /> Medium
+                </label>
+                <label>
+                    <Radio { ...sizeRaido } value="l" /> Large
+                </label>
+                <label>
+                    <Radio { ...sizeRaido } value="xl" /> X-Large
+                </label>
+            </RadioGroup>
             </fieldset>
         </React.Fragment>
     return (
