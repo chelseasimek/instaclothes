@@ -9,15 +9,19 @@ import {
     DialogBackdrop,
 } from "reakit";
 import { swapPage } from '../../utils';
+import { useDispatch } from "react-redux";
+import { clearCart } from '../../redux/actions';
 
 export default function Confirmation(){
     setTimeout(()=>{
         swapPage('arrival');
     }, 60000)
+    const dispatch = useDispatch();
     const dialog = useDialogState();
 
     let _cancelOrder = () => {
         dialog.hide();
+        dispatch(clearCart());
         swapPage('search');
     }
 

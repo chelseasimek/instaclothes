@@ -13,11 +13,20 @@ import {
     DialogBackdrop,
 } from "reakit";
 import { swapPage } from '../../utils';
+import { useDispatch } from "react-redux";
+import { clearCart } from '../../redux/actions';
 
 export default function Rating(){
+  const dispatch = useDispatch();
   const ratingRadio = useRadioState({ state: '' });
   const feedbackCheckbox = useCheckboxState({ state: [] });
   const dialog = useDialogState();
+
+  let _reset = () => {
+    dialog.hide();
+    dispatch(clearCart());
+    swapPage('search');
+  }
 
     return (
         <React.Fragment>
@@ -64,7 +73,7 @@ export default function Rating(){
               <Dialog {...dialog} tabIndex={0} aria-label="send-rating">
                   <h2>Rating Sent!</h2>
                   <p>Thank you for rating your shopper!</p>
-                  <Button onClick={()=>{swapPage('search')}}>Return to Search</Button>
+                  <Button onClick={_reset}>Return to Search</Button>
               </Dialog>
           </DialogBackdrop>
         </>

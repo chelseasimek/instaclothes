@@ -9,9 +9,11 @@ const cart = (state = [], action) => {
             ...action.item
           }
         ]
+      case types.CLEAR_CART:
+        return []
       default:
         return state
     }
   }
-  
+
   export default cart
