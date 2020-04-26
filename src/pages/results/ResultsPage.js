@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Clickable, Button } from "reakit";
+import { Clickable, Button, Separator } from "reakit";
 import { swapPage } from '../../utils';
 import { useDispatch } from "react-redux";
 import { updateCurrentItem, addItemToCart } from '../../redux/actions';
@@ -53,7 +53,7 @@ export default function Results() {
         <React.Fragment>
             <h2>Results</h2>
             { renderResults }
-
+            <Separator/>
             <Button onClick={_searchAgain}>Adjust Search</Button>
         </React.Fragment>
     );
