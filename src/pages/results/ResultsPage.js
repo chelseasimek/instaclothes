@@ -5,7 +5,7 @@ import { swapPage } from '../../utils';
 import { useDispatch } from "react-redux";
 import { updateCurrentItem, addItemToCart } from '../../redux/actions';
 
-export default function Results(){
+export default function Results() {
     const searchState = useSelector(state => state.search);
     const dispatch = useDispatch();
     let stores = [ 'Target', 'Norstrom', 'Marshalls', 'Aerie', 'Bloomingdales', 'The Gap' ]

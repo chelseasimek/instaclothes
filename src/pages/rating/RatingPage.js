@@ -16,7 +16,7 @@ import { swapPage } from '../../utils';
 import { useDispatch } from "react-redux";
 import { clearCart } from '../../redux/actions';
 
-export default function Rating(){
+export default function Rating() {
   const dispatch = useDispatch();
   const ratingRadio = useRadioState({ state: '' });
   const feedbackCheckbox = useCheckboxState({ state: [] });

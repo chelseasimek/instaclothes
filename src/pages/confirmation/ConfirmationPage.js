@@ -12,7 +12,7 @@ import { swapPage } from '../../utils';
 import { useDispatch } from "react-redux";
 import { clearCart } from '../../redux/actions';
 
-export default function Confirmation(){
+export default function Confirmation() {
     setTimeout(()=>{
         swapPage('arrival');
     }, 60000)

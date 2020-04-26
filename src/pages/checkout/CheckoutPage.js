@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { 
+import {
     Button,
     Box,
     useCheckboxState,
@@ -9,14 +9,14 @@ import {
 } from "reakit";
 import { swapPage } from '../../utils';
 
-export default function Checkout(){
+export default function Checkout() {
     const cartState = useSelector(state => state.cart);
     const sizeCheckbox = useCheckboxState({ state: [] });
     const deliveryFee = 4.99;
     let renderResults = cartState.map((item, i) => {
         return (
             <React.Fragment  key= {item.title + i}>
-                <Box tabIndex={i+4} onClick={()=>{}}>    
+                <Box tabIndex={i+4} onClick={()=>{}}>
                     <img alt={item.imageAlt()} src='' />
                     <h3> {item.title} </h3>
                     <h4> {item.store} </h4>
@@ -29,23 +29,23 @@ export default function Checkout(){
 
     let totalPrice = cartState.reduce((acc, val) => (acc + parseInt(val.price.replace(/\$/g,""))), deliveryFee);
 
-    let deliveryDetails = 
+    let deliveryDetails =
         <React.Fragment>
             <h2>Delivery Fee</h2>
             <h4>${deliveryFee}</h4>
         </React.Fragment>
 
-    let orderTotal = 
+    let orderTotal =
         <React.Fragment>
             <h2>Order Total</h2>
             <h4>${totalPrice}</h4>
         </React.Fragment>
 
-    let freeBackupSize = 
+    let freeBackupSize =
         <React.Fragment>
             <h2>Free Backup Size</h2>
-            <fieldset>   
-            <label>   
+            <fieldset>
+            <label>
                 <Checkbox {...sizeCheckbox} value="xs" />
                 X-Small
             </label>
@@ -65,7 +65,7 @@ export default function Checkout(){
                 <Checkbox {...sizeCheckbox} value="xl" />
                 X-Large
             </label>
-            </fieldset>  
+            </fieldset>
         </React.Fragment>
     return (
         <React.Fragment>

@@ -11,6 +11,8 @@ const cart = (state = [], action) => {
         ]
       case types.CLEAR_CART:
         return []
+      case types.REMOVE_ITEM_FROM_CART:
+          return action.cart
       default:
         return state
     }

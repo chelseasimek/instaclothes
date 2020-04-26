@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { 
+import {
   useRadioState,
   Radio,
   RadioGroup,
@@ -17,7 +17,7 @@ import { useDispatch } from "react-redux";
 import { updateSearchValues } from '../../redux/actions';
 import { swapPage } from '../../utils';
 
-export default function Search(){
+export default function Search() {
   const dispatch = useDispatch();
   const colorRadio = useRadioState({ state: 'red' });
   const sizeCheckbox = useCheckboxState({ state: [] });
@@ -25,8 +25,8 @@ export default function Search(){
   const form = useFormState({
    values: { search: "" },
    onSubmit: (values) => {
-     values = { 
-       input: values.search, 
+     values = {
+       input: values.search,
        color: colorRadio.state,
        size: sizeCheckbox.state,
        occasion: occasionCheckbox.state
@@ -45,7 +45,7 @@ export default function Search(){
         </FormLabel>
         <FormInput {...form} name="search" placeholder="Shirt" />
         <h2>Colors</h2>
-        <fieldset>   
+        <fieldset>
           <RadioGroup { ...colorRadio } aria-label="shirt-colors">
             <label>
               <Radio { ...colorRadio } value="red" /> Red
@@ -66,11 +66,11 @@ export default function Search(){
               <Radio { ...colorRadio } value="purple" /> Purple
             </label>
           </RadioGroup>
-        </fieldset>   
+        </fieldset>
 
         <h2>Size</h2>
-        <fieldset>   
-          <label>   
+        <fieldset>
+          <label>
             <Checkbox {...sizeCheckbox} value="xs" />
             X-Small
           </label>
@@ -90,10 +90,10 @@ export default function Search(){
             <Checkbox {...sizeCheckbox} value="xl" />
             X-Large
           </label>
-        </fieldset>    
+        </fieldset>
 
         <h2>Occasion</h2>
-        <fieldset>   
+        <fieldset>
           <label>
             <Checkbox {...occasionCheckbox} value="formal" />
             Formal
@@ -118,7 +118,7 @@ export default function Search(){
             <Checkbox {...occasionCheckbox} value="business" />
             Business
           </label>
-        </fieldset>    
+        </fieldset>
         <FormSubmitButton {...form}>Go</FormSubmitButton>
       </Form>
     </React.Fragment>
