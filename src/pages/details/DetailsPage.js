@@ -49,9 +49,13 @@ export default function Results(){
     return (
         <React.Fragment>
             <h2>Results</h2>
-            { renderResults }
-
-            <Button onClick={_searchAgain}>Adjust Search</Button>
+            {/* <Clickable tabIndex={i+1} onClick={()=>{_getDetails(result)}}>
+                    <img alt={result.imageAlt()} src='' />
+                    <h3> {result.title} </h3>
+                    <h4> {result.store} </h4>
+                    <h4> {result.price} </h4>
+                </Clickable>
+                <Button tabIndex={i+1} onClick={()=>{_addToCart(result)}} >Reserve Item</Button> */}
         </React.Fragment>
     );
 }

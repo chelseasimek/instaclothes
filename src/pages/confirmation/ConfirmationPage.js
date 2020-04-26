@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { 
+import {
     Button,
     Box,
     useDialogState,
@@ -11,6 +11,9 @@ import {
 import { swapPage } from '../../utils';
 
 export default function Confirmation(){
+    setTimeout(()=>{
+        swapPage('arrival');
+    }, 60000)
     const dialog = useDialogState();
 
     let _cancelOrder = () => {
