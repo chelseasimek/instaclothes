@@ -1,6 +1,6 @@
 {
   "name": "instaclothes-proto",
-  "homepage": "http://chelseasimek.github.io/instaclothes",
+  "homepage": "https://instaclothes.herokuapp.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

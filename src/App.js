@@ -20,6 +20,7 @@ class App extends React.Component {
   render () {
     return (
       <Switch>
+        <Route path="/" exact={true} component={Search} />
         <Route path="/search" exact={true} component={Search} />
         <Route path="/results" exact={true} component={Results} />
         <Route path="/details" exact={true} component={Details} />
